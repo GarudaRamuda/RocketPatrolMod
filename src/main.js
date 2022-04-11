@@ -6,6 +6,7 @@ let config = {
     scene: [Menu, Play]
 };
 
+// set up game borders
 let borderUISize = config.height / 15;
 let borderPadding = borderUISize / 3;
 
