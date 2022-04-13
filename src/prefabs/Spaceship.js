@@ -16,6 +16,12 @@ class Spaceship extends Phaser.GameObjects.Sprite {
     }
     reset() {
             this.x = game.config.width;
-
     }
-} 
+}
+
+class Striker extends Spaceship {
+    constructor(scene, x, y, texture, frame, pointValue) {
+        super(scene, x, y, texture, frame, pointValue);
+        this.moveSpeed = Math.floor(this.moveSpeed * 1.4);
+    }
+}
