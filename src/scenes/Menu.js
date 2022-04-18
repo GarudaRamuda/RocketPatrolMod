@@ -31,23 +31,28 @@ class Menu extends Phaser.Scene {
     
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        pointer = this.input.activePointer;
+        this.input.mouse.disableContextMenu();
     }
 
     update() {
-        if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+        console.log(pointer.leftButtonDown());
+        if (Phaser.Input.Keyboard.JustDown(keyLEFT) || pointer.leftButtonDown()) {
             // easy mode
             game.settings = {
                 spaceshipSpeed: 3,
-                gameTimer: 60000
+                gameTimer: 60000,
+                mouseMode: (pointer.leftButtonDown() ? true : false),
             }
             this.sound.play('sfx_select');
             this.scene.start('play');
         }
-        if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
+        if (Phaser.Input.Keyboard.JustDown(keyRIGHT) || pointer.rightButtonDown()) {
             // hard mode
             game.settings = {
                 spaceshipSpeed: 4,
-                gameTimer: 45000
+                gameTimer: 45000,
+                mouseMode: (pointer.rightButtonDown() ? true : false),
             }
             this.sound.play('sfx_select');
             this.scene.start('play');
