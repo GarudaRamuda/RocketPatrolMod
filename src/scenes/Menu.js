@@ -38,7 +38,6 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
-        console.log(pointer.leftButtonDown());
         if (Phaser.Input.Keyboard.JustDown(keyLEFT) || pointer.leftButtonDown()) {
             // easy mode
             game.settings = {

@@ -15,7 +15,6 @@ class Play extends Phaser.Scene {
     create() {
         this.starfield = this.add.tileSprite(0,0, 640, 480, 'starfield').setOrigin(0,0);
 
-        console.log(game.highScore);        
 
         this.p1Rocket = new Rocket(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0,0);
 
