@@ -1,6 +1,3 @@
-// TODO: finish mouse movement, add mouse option to menu and make the player choose
-// TODO: make rocket slightly controllable after launch
-// TODO: display highscore on menu, format the highscore
 class Play extends Phaser.Scene {
     constructor() {
         super("play");
@@ -49,10 +46,10 @@ class Play extends Phaser.Scene {
         this.p1Score = 0;
 
         this.scoreConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Corbel',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#92E8C0',
+            color: '#000000',
             align: 'right',
             padding: {
                 top: 5,
@@ -70,7 +67,7 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', this.scoreConfig).setOrigin(0.5);
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← for Menu',
         this.scoreConfig).setOrigin(0.5);
-            this.add.text(game.config.width/2, game.config.height/2 + 128, `${game.highScore}`, this.scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width/2, game.config.height/2 + 128, `High Score: ${game.highScore}`, this.scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
         this.timeDisplay = this.add.text(game.config.width - borderUISize - borderPadding * 4   , borderUISize + borderPadding*2, Math.ceil(this.clock.getRemainingSeconds()), this.scoreConfig);
@@ -132,7 +129,7 @@ class Play extends Phaser.Scene {
                                             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', this.scoreConfig).setOrigin(0.5);
                                             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← for Menu',
                                             this.scoreConfig).setOrigin(0.5);
-                                            this.add.text(game.config.width/2, game.config.height/2 + 128, `${game.highScore}`, this.scoreConfig).setOrigin(0.5);
+                                            this.add.text(game.config.width/2, game.config.height/2 + 128, `High Score: ${game.highScore}`, this.scoreConfig).setOrigin(0.5);
                                             this.gameOver = true;
                                         },
                             callbackScope: this,
